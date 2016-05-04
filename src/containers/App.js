@@ -18,7 +18,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <GoalTable goals={ this.props.goal } onCheck={ this.handleCheck }/>
+      <GoalTable
+        goals={ this.props.goal }
+        onCheck={ this.handleCheck }/>
     );
   }
 }

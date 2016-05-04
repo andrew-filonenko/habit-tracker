@@ -4,11 +4,13 @@ import TextInput from '../inputs/TextInput';
 import Button from '../inputs/Button';
 import Ribbon from '../Ribbon';
 
-export default function Login({ onLogin, onUsername, onPassword }) {
+export default function Login({ errorMessage, onLogin, onUsername, onPassword }) {
   const { block, elem } = bem('b', 'login');
-  const errorMessage = (
-    <Ribbon text="Hey, wrong" type="error" />
-  );
+  const notification = errorMessage
+    ? (
+      <Ribbon text={ errorMessage } type="error" />
+    )
+    : null;
 
   function handleUsername({ target: { value } }) {
     onUsername(value);
@@ -23,8 +25,8 @@ export default function Login({ onLogin, onUsername, onPassword }) {
       <div className={ elem('inner') }>
         <TextInput className={ elem('username') } onChange={ handleUsername } label="Username"/>
         <TextInput className={ elem('password') } onChange={ handlePassword } type="password" label="Password" />
-        <Button className={ elem('button') } text="Log In"/>
-        { errorMessage }
+        <Button className={ elem('button') } text="Log In" onClick={ onLogin }/>
+        { notification }
       </div>
     </div>
   );

@@ -1,6 +1,10 @@
 .b-login {
   margin-top: 80px;
 
+  &__inner {
+    width: 224px;
+  }
+
   &__button {
     margin-top: 8px;
     width: 100%;

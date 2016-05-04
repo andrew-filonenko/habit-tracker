@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import App from './containers/App';
+import LoginPage from './containers/LoginPage';
 import Header from './containers/Header';
 import Container from './components/Container';
 import './app.scss';
@@ -12,7 +13,7 @@ render(
     <div className="b-app">
       <Header />
       <Container>
-        <App/>
+        <LoginPage/>
       </Container>
     </div>
   </Provider>,
