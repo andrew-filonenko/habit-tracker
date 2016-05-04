@@ -1,0 +1,12 @@
+@import '../variables';
+
+.b-day {
+  display: flex;
+  padding: $x;
+  flex-wrap: wrap;
+  background-color: hsl(202, 67%, 17%);
+  margin: 4px;
+  &__item {
+    padding: 1px;
+  }
+}

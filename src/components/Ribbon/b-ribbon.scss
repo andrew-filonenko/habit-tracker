@@ -1,0 +1,10 @@
+.b-ribbon {
+  padding: 8px 16px;
+  &__icon {
+    padding-right: 8px; 
+  }
+
+  &--error {
+    color: pink;
+  }
+}

@@ -1,0 +1,12 @@
+@import '../variables';
+
+.b-goal-title {
+  display: flex;
+  align-items: center;
+  padding: $x; 
+  color: lightcyan;
+
+  &__type {
+    margin-left: auto;
+  }
+}

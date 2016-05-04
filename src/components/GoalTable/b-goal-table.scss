@@ -1,0 +1,66 @@
+$x: 8px;
+$header-column-width: 130px;
+
+.b-goal-table {
+  width: 100%;
+  display: flex;
+
+  &__inner {
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+  }
+
+  &__head {
+    height: 4 * $x;
+    display: flex;
+    width: 100%;
+  }
+
+  &__goal-row {
+    display: flex;
+  }
+
+  &__day-titles {
+    width: 100%;
+    align-items: stretch;
+    display: flex;
+    margin-left: $header-column-width;
+  }
+
+  &__day-title {
+    display: flex;
+    padding-left: 4px;
+    align-items: center;
+    width: 14.286%; 
+    box-sizing: border-box;
+  }
+
+  &__goal-row {
+    display: flex;
+  }
+
+  &__goal-title {
+    box-sizing: border-box;
+    min-width: $header-column-width; 
+  }
+
+  &__total {
+    display: flex;
+    height: 3 * $x;
+  }
+
+  &__per-day {
+    width: 100%;
+    align-items: stretch;
+    display: flex;
+    margin-left: $header-column-width;
+  }
+
+  &__total-item {
+    width: 14.286%;
+    display: flex;
+    padding-left: 4px;
+    box-sizing: border-box;
+  }
+}

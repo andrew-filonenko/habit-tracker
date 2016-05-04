@@ -1,0 +1,14 @@
+@import '../variables';
+
+.b-goal {
+  display: flex;
+  color: aquamarine;
+  align-items: stretch;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  &__day {
+    box-sizing: border-box;
+    width: 14.286%;
+  }
+}
