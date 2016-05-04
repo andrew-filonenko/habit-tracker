@@ -8,6 +8,6 @@ const defaultCreds = Map({
 });
 
 export default createReducer(defaultCreds, {
-  [LOGIN_USERNAME]: (state, username) => state.set({ username }),
-  [LOGIN_PASSWORD]: (state, password) => state.set({ password })
+  [LOGIN_USERNAME]: (state, { payload: username }) => state.set('username', username),
+  [LOGIN_PASSWORD]: (state, { payload: password }) => state.set('password', password)
 });

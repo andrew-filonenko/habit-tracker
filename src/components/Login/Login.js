@@ -10,13 +10,19 @@ export default function Login({ onLogin, onUsername, onPassword }) {
     <Ribbon text="Hey, wrong" type="error" />
   );
 
-  const handleInput = name => evt => console.log(name, evt);
+  function handleUsername({ target: { value } }) {
+    onUsername(value);
+  }
+
+  function handlePassword({ target: { value } }) {
+    onPassword(value);
+  }
 
   return (
     <div className={ block }>
       <div className={ elem('inner') }>
-        <TextInput className={ elem('username') } onChange={ handleInput('username') } label="Username"/>
-        <TextInput className={ elem('password') } onChange={ handleInput('password') } type="password" label="Password" />
+        <TextInput className={ elem('username') } onChange={ handleUsername } label="Username"/>
+        <TextInput className={ elem('password') } onChange={ handlePassword } type="password" label="Password" />
         <Button className={ elem('button') } text="Log In"/>
         { errorMessage }
       </div>
