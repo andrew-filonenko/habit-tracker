@@ -1,26 +1,29 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { checkDay } from '../actions/goals-actions';
-import GoalTable from '../components/GoalTable';
+import { logout } from '../actions/user-actions';
+import Header from '../components/Header';
+import Container from '../components/Container';
 
-@connect(({ goal }) => ({ goal: goal.toJS() }))
+@connect(state => ({ routerState: state.router, user: state.user.toJS() }))
 export default class App extends Component {
 
   static propTypes = {
-    goal: PropTypes.array.isRequired,
+    children: PropTypes.any,
     dispatch: PropTypes.func,
-    onCheck: PropTypes.func
-  }
-
-  handleCheck = (code, day, increment) => {
-    this.props.dispatch(checkDay({ code, day, increment }));
+    user: PropTypes.object
   };
 
+  handleLogout = () => this.props.dispatch(logout());
+
   render() {
+    const { user: { loggedIn } } = this.props;
     return (
-      <GoalTable
-        goals={ this.props.goal }
-        onCheck={ this.handleCheck }/>
+      <div className="b-app">
+        <Header onLogout={ this.handleLogout } loggedIn={ loggedIn }/>
+        <Container>
+          { this.props.children }
+        </Container>
+      </div>
     );
   }
 }

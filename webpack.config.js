@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   resolve: {
     modulesDirectories: ['stylesheets', 'node_modules']
   },
