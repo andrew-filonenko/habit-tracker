@@ -1,8 +1,9 @@
 import { handleActions } from 'redux-actions';
 import { fromJS } from 'immutable';
-import { USER_LOGIN, USER_LOGOUT } from '../actions/user-actions';
+import { USER_LOGIN, USER_LOGOUT, USER_GET_SESSION } from '../actions/user-actions';
 
 const user = fromJS({
+  sessionChecked: false,
   loggedIn: false,
   errorMessage: null
 });
@@ -16,6 +17,12 @@ export default handleActions({
       return state.set('errorMessage', message);
     }
   },
-  [USER_LOGOUT]: state => state.set('loggedIn', false)
+  [USER_GET_SESSION]: {
+    next(state, { payload: { userCtx: { name } } }) {
+      if (!name) return state.set('sessionChecked', true);
+      return state.merge({ sessionChecked: true, loggedIn: true });
+    }
+  },
+  [USER_LOGOUT]: () => user
 }, user);
 
