@@ -12,4 +12,3 @@ export const login = createAction(USER_LOGIN, ({ username, password }) => {
 export const logout = createAction(USER_LOGOUT, () => db.logout());
 
 export const getSession = createAction(USER_GET_SESSION, () => db.getSession());
-

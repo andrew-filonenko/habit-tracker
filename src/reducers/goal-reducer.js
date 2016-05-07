@@ -1,6 +1,6 @@
-import createReducer from './createReducer';
 import { CHECK_DAY } from '../actions/goals-actions';
 import { fromJS } from 'immutable';
+import { handleActions } from 'redux-actions';
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -27,10 +27,10 @@ const weeklyProgress = fromJS([
   }
 ]);
 
-export default createReducer(weeklyProgress, {
+export default handleActions({
   [CHECK_DAY]: (state, { payload: { code, day, increment } }) => {
     const goalIdx = state.findIndex(goal => goal.get('code') === code);
     const goalPath = [goalIdx, 'weekView', DAYS.indexOf(day)];
     return state.updateIn(goalPath, v => v + increment);
   }
-});
+}, weeklyProgress);
