@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import bem from '../../utils/bem-helper';
+import bem from '../../../utils/bem-helper';
 import cx from 'classnames';
 import range from 'lodash/range';
 import Icon from 'react-fa';

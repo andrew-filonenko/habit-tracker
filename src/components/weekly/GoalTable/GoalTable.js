@@ -3,8 +3,8 @@ import zip from 'lodash/zip';
 import sum from 'lodash/sum';
 import Goal from '../Goal';
 import GoalTitle from '../GoalTitle';
-import bem from '../../utils/bem-helper';
-import { DAYS } from '../../constants';
+import bem from '../../../utils/bem-helper';
+import { DAYS } from '../../../constants';
 
 function weeklyTotal(weeklyProgress) {
   return zip(...weeklyProgress.map(p => p.weekView)).map(sum);

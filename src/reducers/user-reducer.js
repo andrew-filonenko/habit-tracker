@@ -19,7 +19,7 @@ export default handleActions({
   },
   [USER_GET_SESSION]: {
     next(state, { payload: { userCtx: { name } } }) {
-      if (!name) return state.set('sessionChecked', true);
+      if (!name) return state.merge({ sessionChecked: true, loggedIn: false });
       return state.merge({ sessionChecked: true, loggedIn: true });
     }
   },

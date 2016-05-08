@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Day from '../Day';
-import bem from '../../utils/bem-helper';
-import { DAYS } from '../../constants';
+import bem from '../../../utils/bem-helper';
+import { DAYS } from '../../../constants';
 import cx from 'classnames';
 
 function Goal(props) {

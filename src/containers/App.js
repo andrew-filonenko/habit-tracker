@@ -7,7 +7,6 @@ import { push } from 'redux-router';
 
 @connect(state => ({ routerState: state.router, user: state.user.toJS() }))
 export default class App extends Component {
-
   static propTypes = {
     children: PropTypes.any,
     dispatch: PropTypes.func,
@@ -19,8 +18,8 @@ export default class App extends Component {
   }
   componentWillReceiveProps(props) { this.leaveIfNotLoggedIn(props); }
 
-  leaveIfNotLoggedIn = ({ user: { loggedIn, sessionChecked } }) => {
-    if (!loggedIn && !sessionChecked) this.props.dispatch(push('/login'));
+  leaveIfNotLoggedIn = ({ user: { loggedIn } }) => {
+    if (!loggedIn) this.props.dispatch(push('/login'));
   }
 
   handleLogout = () => this.props.dispatch(logout());
