@@ -6,6 +6,12 @@
   padding: $x; 
   color: lightcyan;
 
+  &__title {
+    width: 96px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+
   &__type {
     margin-left: auto;
   }

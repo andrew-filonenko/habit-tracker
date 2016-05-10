@@ -6,7 +6,7 @@ export default function() {
   const { block, elem } = bem('b', 'logo');
   return (
     <a className={ block }>
-      <Icon className={ elem('logo') } name="bullseye" />
+      <Icon className={ elem('logo') } name="bullseye" size="2x"/>
     </a>
   );
 }

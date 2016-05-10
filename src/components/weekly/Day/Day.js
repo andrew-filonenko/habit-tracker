@@ -7,7 +7,7 @@ import Icon from 'react-fa';
 function Day(props) {
   const { negative, amount, onClick, className: _className } = props;
   const { block, elem, mod } = bem('b', 'day');
-  const className = cx(block, _className, { [mod('negative')]: negative });
+  const className = cx(block, _className, mod('negative', negative));
 
   function handleIncrement() {
     return onClick(negative ? -1 : 1);
@@ -45,5 +45,4 @@ Day.propTypes = {
 };
 
 export default Day;
-
 

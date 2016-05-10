@@ -15,11 +15,7 @@ export default function TextInput({
   return (
     <div className={ _className }>
       <label htmlFor={ name } className={ elem('label') }>{ label }</label>
-      <input
-        name={ name }
-        className={ elem('input') }
-        placeholder={ placeholder }
-        type={ type || 'text' } { ...rest } />
+      <input name={ name } className={ elem('input') } type={ type || 'text' } { ...rest } />
     </div>
   );
 }

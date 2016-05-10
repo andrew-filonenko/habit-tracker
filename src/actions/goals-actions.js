@@ -5,7 +5,6 @@ import { createAction } from 'redux-actions';
 import { local as db } from '../db';
 import { DAYS } from '../constants';
 import moment from 'moment';
-import findIndex from 'lodash/findIndex';
 import set from 'lodash/set';
 
 function dateValDoc(goal, datetime, value) {
@@ -45,7 +44,7 @@ export const getReports = createAction(GOALS_GET_REPORTS, day => {
   const datetime = moment(day);
   const startkey = datetime.day(0).format('YYYY-MM-DD');
   const endkey = datetime.day(6).format('YYYY-MM-DD');
-  const queryResult = db.query('goals/byGoalType', { startkey, endkey });
+  const queryResult = db.query('goalIncrements/byGoalType', { startkey, endkey });
   return queryResult
     .then(({ rows }) => {
       return rows.reduce((progress, { key: date, value: { goal: code, value } }) => {

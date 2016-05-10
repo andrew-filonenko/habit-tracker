@@ -22,11 +22,15 @@ $header-column-width: 130px;
     display: flex;
   }
 
+  &__goal-actions {
+    display: flex;
+    width: $header-column-width;
+  }
+
   &__day-titles {
     width: 100%;
     align-items: stretch;
     display: flex;
-    margin-left: $header-column-width;
   }
 
   &__day-title {
@@ -43,7 +47,7 @@ $header-column-width: 130px;
 
   &__goal-title {
     box-sizing: border-box;
-    min-width: $header-column-width; 
+    width: $header-column-width; 
   }
 
   &__total {

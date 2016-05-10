@@ -1,5 +1,16 @@
 .b-text-input {
+  box-sizing: border-box;
   padding: 8px;
+
+  &__input {
+    border: none;
+    box-sizing: border-box;
+    border-bottom: 1px solid lightblue;
+    background: #103a52;
+    height: 24px;
+    color: lightcyan;
+  }
+
   &__label {
     padding-right: 8px;
   }

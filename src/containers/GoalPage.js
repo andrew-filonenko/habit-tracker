@@ -1,17 +1,21 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { checkDay, getReports } from '../actions/goals-actions';
+import { set, submit } from '../actions/new-goal-actions';
+import { add as addGoal, added as addedGoal } from '../actions/application-actions';
 import GoalTable from '../components/weekly/GoalTable';
 import Loader from '../components/Loader';
 
-@connect(({ goal, user, application }) => ({
+@connect(({ goal, user, application, newGoal }) => ({
   goal: goal.toJS(),
   user: user.toJS(),
-  application: application.toJS()
+  application: application.toJS(),
+  newGoal: newGoal.toJS()
 }))
 export default class GoalPage extends Component {
   static propTypes = {
     goal: PropTypes.array.isRequired,
+    newGoal: PropTypes.object,
     application: PropTypes.object,
     dispatch: PropTypes.func,
     onCheck: PropTypes.func
@@ -21,15 +25,44 @@ export default class GoalPage extends Component {
     this.props.dispatch(getReports(new Date()));
   }
 
+  onAdd = () => {
+    this.props.dispatch(addGoal());
+  };
+
+  onAdded = () => {
+    this.props.dispatch(addedGoal());
+  };
+  handleSet = (name, value) => {
+    this.props.dispatch(set({ name, value }));
+  }
+
   handleCheck = (code, day, increment) => {
     this.props.dispatch(checkDay({ code, day, increment }));
   };
 
+  handleSubmit = goal => {
+    this.props.dispatch(submit(goal));
+  }
+
   renderGoalTable() {
+    const {
+      handleSet,
+      handleSubmit,
+      handleCheck,
+      onAdd,
+      onAdded,
+      props: { newGoal, goal, application: { goalAdding } } } = this;
+
     return (
       <GoalTable
-        goals={ this.props.goal }
-        onCheck={ this.handleCheck }/>
+        onAdd={ onAdd }
+        onAdded={ onAdded }
+        goalAdding={ goalAdding }
+        newGoal={ newGoal }
+        goals={ goal }
+        onSet={ handleSet }
+        onSubmit={ handleSubmit }
+        onCheck={ handleCheck }/>
     );
   }
 

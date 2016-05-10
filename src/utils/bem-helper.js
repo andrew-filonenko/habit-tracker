@@ -1,11 +1,14 @@
 export default function bem(ns, blockName) {
+  const block = blockName ? `${ns}-${blockName}` : ns;
   return {
-    block: `${ns}-${blockName}`,
+    block,
     elem(name) {
-      return `${ns}-${blockName}__${name}`;
+      return `${block}__${name}`;
     },
-    mod(name) {
-      return `${ns}-${blockName}--${name}`;
+    mod(name, condition) {
+      const modClass = `${block}--${name}`;
+      if (arguments.length === 1) return modClass;
+      return condition ? modClass : null;
     }
   };
 }
