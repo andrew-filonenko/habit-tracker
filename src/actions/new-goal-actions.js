@@ -19,6 +19,6 @@ function goalDoc({ title, negative }) {
 export const set = createAction(NEWGOAL_SET);
 export const submit = createAction(NEWGOAL_SUBMIT, goal => {
   const { id, doc } = goalDoc(goal);
-  return local.upsert(id, () => doc);
+  return local.upsert(id, () => doc).then(() => ({ id, goal }));
 });
 

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { checkDay, getReports } from '../actions/goals-actions';
+import { checkDay, getGoals, getReports } from '../actions/goals-actions';
 import { set, submit } from '../actions/new-goal-actions';
 import { add as addGoal, added as addedGoal } from '../actions/application-actions';
 import GoalTable from '../components/weekly/GoalTable';
@@ -14,7 +14,7 @@ import Loader from '../components/Loader';
 }))
 export default class GoalPage extends Component {
   static propTypes = {
-    goal: PropTypes.array.isRequired,
+    goal: PropTypes.object.isRequired,
     newGoal: PropTypes.object,
     application: PropTypes.object,
     dispatch: PropTypes.func,
@@ -22,7 +22,8 @@ export default class GoalPage extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(getReports(new Date()));
+    const { dispatch } = this.props;
+    dispatch(getGoals()).then(dispatch(getReports(new Date())));
   }
 
   onAdd = () => {

@@ -10,7 +10,7 @@ function Goal(props) {
   const { block, elem, mod } = bem('b', 'goal');
   const className = cx(block, _className, { [mod('negative')]: negative });
 
-  const days = weekView
+  const days = (weekView || Array(7).fill(0))
     .map((amount, i) => {
       return (
         <Day
