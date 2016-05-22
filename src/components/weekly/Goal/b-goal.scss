@@ -1,11 +1,9 @@
-@import '../../variables';
+@import '~theme/index';
 
 .b-goal {
   display: flex;
-  color: aquamarine;
   align-items: stretch;
   width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
   &__day {
     box-sizing: border-box;

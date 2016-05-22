@@ -1,5 +1,4 @@
-$x: 8px;
-$header-column-width: 130px;
+@import '~theme/index';
 
 .b-goal-table {
   width: 100%;
@@ -12,13 +11,13 @@ $header-column-width: 130px;
   }
 
   &__head {
-    height: 4 * $x;
+    height: 8 * $x;
     display: flex;
     width: 100%;
   }
 
   &__goal-row {
-    min-height: 48px;
+    min-height: 12 * $x;
     display: flex;
   }
 
@@ -27,18 +26,22 @@ $header-column-width: 130px;
     width: $header-column-width;
   }
 
+
   &__day-titles {
+    margin-left: 2 * $x;
     width: 100%;
     align-items: stretch;
     display: flex;
   }
 
   &__day-title {
-    display: flex;
-    padding-left: 4px;
-    align-items: center;
+    $height: 8 * $x;
     width: 14.286%; 
-    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    height: $height;
+    line-height: $height;
   }
 
   &__goal-row {
@@ -46,26 +49,31 @@ $header-column-width: 130px;
   }
 
   &__goal-title {
-    box-sizing: border-box;
     width: $header-column-width; 
   }
 
   &__total {
     display: flex;
-    height: 3 * $x;
+    height: 6 * $x;
+    margin-left: 5 * $x;
   }
 
   &__per-day {
     width: 100%;
-    align-items: stretch;
     display: flex;
-    margin-left: $header-column-width;
+  }
+
+  &__goals-footer {
+    width: $header-column-width;
   }
 
   &__total-item {
+    $height: 8 * $x;
     width: 14.286%;
-    display: flex;
-    padding-left: 4px;
-    box-sizing: border-box;
+    line-height: $height;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    height: $height;
   }
 }

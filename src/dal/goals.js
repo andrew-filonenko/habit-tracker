@@ -3,6 +3,7 @@ import moment from 'moment';
 import { DAYS } from '../constants';
 import { local as db } from '../db';
 import fromPairs from 'lodash/fromPairs';
+import map from 'lodash/map';
 
 function dateValDoc(goal, datetime, value) {
   const date = moment(datetime).format('YYYY-MM-DD');
@@ -65,5 +66,12 @@ export function checkDay(action) {
   const datetime = getDateForDay(day, currentDate);
   const { id, doc } = dateValDoc(goal, datetime, increment);
   return db.upsert(id, dateValDiff(doc, increment)).then(() => action);
+}
+
+export function updateGoals(draftGoal) {
+  const keys = Object.keys(draftGoal);
+  return db.allDocs({ keys, include_docs: true })
+    .then(({ rows }) => rows.map(({ doc, id }) => ({ ...doc, ...draftGoal[id] })))
+    .then(docs => db.bulkDocs(docs));
 }
 

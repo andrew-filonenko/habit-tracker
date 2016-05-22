@@ -1,18 +1,31 @@
-@import '../../variables';
+@import '~theme/index';
 
 .b-goal-title {
   display: flex;
   align-items: center;
-  padding: $x; 
-  color: lightcyan;
+  padding: 2 * $x; 
+  position: relative;
+  margin-right: 4 * $x;
+  border-bottom: 1px solid $background-accent-color;
+  margin-left: 2 * $x;
 
-  &__title {
-    width: 96px;
+  &__title, &__title-edit {
+    font-size: 4 * $x;
+    width: 45 * $x;
+    padding: 0 2 * $x;
+    margin: auto;
     overflow: hidden;
     text-overflow: ellipsis; 
   }
 
   &__type {
-    margin-left: auto;
+    color: $text-accent-color;
   }
+
+  &__delete {
+    right: -3 * $x;
+    position: absolute;
+    top: 5 * $x;
+  }
+
 }

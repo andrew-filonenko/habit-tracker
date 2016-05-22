@@ -1,14 +1,14 @@
 @import './reset';
-@import './styles/index';
+@import '~theme/index';
 
 body {
-  color: lightskyblue;
-  font-family: 'Inconsolata', monospace;
-  background-color: rgba(16, 58, 82, 1);
+  color: $text-color;
+  font-family: $font-family;
+  background-color: $background-color;
 }
 
 a {
-  color: whitesmoke;
+  color: $text-action-color;
 }
 
 #root {

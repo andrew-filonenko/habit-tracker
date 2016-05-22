@@ -1,4 +1,9 @@
-import { GOALS_CHECK_DAY, GOALS_GET_REPORTS, GOALS_GET_GOALS } from '../actions/goals-actions';
+import {
+  GOALS_CHECK_DAY,
+  GOALS_GET_REPORTS,
+  GOALS_GET_GOALS,
+  GOALS_UPDATED
+} from '../actions/goals-actions';
 import { NEWGOAL_SUBMIT } from '../actions/new-goal-actions';
 import { fromJS, List } from 'immutable';
 import { handleActions } from 'redux-actions';
@@ -22,5 +27,6 @@ export default handleActions({
   [NEWGOAL_SUBMIT]: (state, { payload: { id, goal } }) => {
     const goals = state.get('goals').merge(fromJS({ [id]: goal }));
     return state.set('goals', goals);
-  }
+  },
+  [GOALS_UPDATED]: (state, { payload: updates }) => state.mergeDeep({ goals: updates })
 }, weeklyProgress);

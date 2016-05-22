@@ -1,12 +1,14 @@
+@import '~theme/index';
+
 .b-header {
   display: flex;
-  box-shadow: 1px 1px 2px 0.5px rgba(0,0,0,.4);
+  box-shadow: $header-box-shadow;
   align-items: baseline;
-  background-color: #0e3348;
-  margin-bottom: 16px;
+  background-color: $background-accent-color;
+  margin-bottom: 4 * $x;
 
   &__user-actions {
     margin-left: auto;
-    padding: 8px;
+    padding: 2 * $x;
   }
 }

@@ -7,7 +7,8 @@ import { handleActions } from 'redux-actions';
 const defaultState = fromJS({
   goalsLoaded: false,
   reportsLoaded: false,
-  goalAdding: false
+  goalAdding: false,
+  goalEditing: false
 });
 
 const set = (k, v) => state => state.set(k, v);

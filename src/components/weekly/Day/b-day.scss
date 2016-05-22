@@ -1,12 +1,15 @@
-@import '../../variables';
+@import '~theme/index';
 
 .b-day {
   display: flex;
-  padding: $x;
+  justify-content: center;
+  align-items: center;
+  padding: 2 * $x;
   flex-wrap: wrap;
-  background-color: hsl(202, 67%, 17%);
-  margin: 4px;
+  background-color: $background-accent-color;
+  margin: $x;
   &__item {
     padding: 1px;
+    color: $text-accent-color;
   }
 }

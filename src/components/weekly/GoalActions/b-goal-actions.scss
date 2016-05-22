@@ -1,8 +1,11 @@
-.b-goal-actions {
-  width: 130px;
-  margin: 8px;
+@import '~theme/index';
 
-  &__label {
-    padding-left: 8px;
-  }
+.b-goal-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-left: 4 * $x;
+  height: 100%;
+
 }

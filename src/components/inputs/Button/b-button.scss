@@ -1,6 +1,12 @@
+@import '~theme/index';
+
+$background: transparent;
+$color: $text-color;
+$border: 1px solid $text-color;
+
 .b-button {
-  padding: 0 24px;
-  color: lightskyblue;
-  border: 1px solid lightskyblue;
-  background-color: transparent;
+  padding: 0 6 * $x;
+  color: $color;
+  border: $border;
+  background: $background;
 }

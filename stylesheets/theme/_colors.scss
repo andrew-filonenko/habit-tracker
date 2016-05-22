@@ -1,0 +1,10 @@
+@import './color-definitions';
+$text-color: $palette-blue-grey-100 !default;
+$text-accent-color: $palette-teal-A100 !default;
+$text-action-color: $palette-blue-grey-50 !default;
+$alert-color: $palette-red-A100 !default;
+$background-color: $palette-blue-grey-900 !default;
+$background-accent-color: $palette-blue-grey-800 !default;
+
+// shadows
+$header-box-shadow: 1px 1px 2px 0.5px rgba(0,0,0,.4) !default;

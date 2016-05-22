@@ -1,6 +1,8 @@
+@import '~theme/index';
+
 .b-logo {
   &__logo {
-    color: deepskyblue;
+    color: $palette-green-200;
     font-size: 32px;
     padding: 8px;
   }

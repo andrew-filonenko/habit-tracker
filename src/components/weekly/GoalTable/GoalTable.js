@@ -20,19 +20,34 @@ export default function GoalTable({
   onCheck,
   onSet,
   onAdd,
+  onChange,
   onAdded,
   newGoal,
+  draftGoal,
   onSubmit,
-  goalAdding
+  onCancel,
+  onEdit,
+  onEdited,
+  goalAdding,
+  onDelete,
+  goalEditing
 }) {
   const { block, elem } = bem('b', 'goal-table');
 
   const progress = map(goals, (goal, id) => {
+    if ((draftGoal[id] || {})._deleted || goal._deleted) return false;
     const key = `goal-${id}`;
     const weekView = reports[id];
     return (
       <div className={ elem('goal-row') } key={ key }>
-        <GoalTitle className={ elem('goal-title') } { ...goal } />
+        <GoalTitle
+          className={ elem('goal-title') }
+          goalEditing={ goalEditing } { ...goal }
+          code={ id }
+          draftGoal={ draftGoal }
+          onChange={ onChange }
+          onDelete={ onDelete }
+        />
         <Goal
           weekView={ weekView }
           code={ id }
@@ -41,7 +56,7 @@ export default function GoalTable({
         />
       </div>
     );
-  });
+  }).filter(x => x);
 
   const total = weeklyTotal(reports, goals).map((total, i) => {
     return <div key={ `total-${i}` } className={ elem('total-item') } >{ total }</div>;
@@ -65,7 +80,14 @@ export default function GoalTable({
     <div className={ block }>
       <div className={ elem('inner') }>
         <div className={ elem('head') }>
-          <GoalActions className={ elem('goal-actions') } onAdd={ onAdd }/>
+          <GoalActions
+            className={ elem('goal-actions') }
+            onAdd={ onAdd }
+            goalEditing={ goalEditing }
+            onEdit={ onEdit }
+            onEdited={ onEdited }
+            onCancel={ onCancel }
+          />
           <div className={ elem('day-titles') }>
             { days }
           </div>
@@ -75,6 +97,7 @@ export default function GoalTable({
           { progress }
         </div>
         <div className={ elem('total') }>
+          <div className={ elem('goals-footer') }/>
           <div className={ elem('per-day') } >
             { total }
           </div>

@@ -1,12 +1,16 @@
+@import "~theme/index";
+
 .b-text-input {
   box-sizing: border-box;
   padding: 8px;
 
   &__input {
+    font-size: inherit;
+    font-family: inherit;
     border: none;
     box-sizing: border-box;
     border-bottom: 1px solid lightblue;
-    background: #103a52;
+    background: transparent;
     height: 24px;
     color: lightcyan;
   }
